@@ -51,8 +51,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         appDelegate = self
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        //添加图片拖动功能
         let statusBarButton = DragDestinationView(frame: (statusItem.button?.bounds)!)
         statusItem.button?.superview?.addSubview(statusBarButton, positioned: .below, relativeTo: statusItem.button)
+        
+        //设置状态栏图标和事件
         let iconImage = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
         statusItem.button?.image = iconImage
         statusItem.button?.action = #selector(showMenu)
