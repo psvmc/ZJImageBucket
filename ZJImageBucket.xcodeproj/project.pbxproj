@@ -496,7 +496,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.psvmc.zimage;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.psvmc.zimagebucket;
 				PRODUCT_NAME = ZJImageBucket;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -524,7 +524,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.psvmc.zimage;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.psvmc.zimagebucket;
 				PRODUCT_NAME = ZJImageBucket;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
