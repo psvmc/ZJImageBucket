@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ZJImageBucket" customModuleProvider="target">
+            <connections>
+                <outlet property="AliOSSMenu" destination="roU-SH-kf9" id="BlX-nN-zdK"/>
+                <outlet property="MarkdownItem" destination="jTH-pG-yA9" id="ivg-YL-QoO"/>
+                <outlet property="QNMenu" destination="Xf6-Pd-yuL" id="xVN-Pb-0JI"/>
+                <outlet property="autoUpItem" destination="zra-zw-k7S" id="Kcb-px-S7r"/>
+                <outlet property="cacheImageMenuItem" destination="pkg-fa-emd" id="VhJ-aT-yHx"/>
+                <outlet property="defaultMenu" destination="8bv-Ph-LoL" id="FS0-dS-nSl"/>
+                <outlet property="statusMenu" destination="fWa-rH-t3a" id="bG6-IM-Qxm"/>
+                <outlet property="uploadMenuItem" destination="Nvv-ru-edU" id="fyR-Ve-2nU"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+            <items>
+                <menuItem title="Z图床" id="1Xt-HY-uBw">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Z图床" systemMenu="apple" id="uQy-DD-JDr">
+                        <items>
+                            <menuItem title="关于Z图床" id="5kV-Vb-QxS">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="退出" keyEquivalent="q" id="4sb-4s-VLi">
+                                <connections>
+                                    <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Edit" id="5QF-Oa-p0T">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Format" id="jxT-CU-nIS">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="View" id="H8h-7b-M4v">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Window" id="aUF-d1-5bR">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Help" id="wpr-3q-Mcd">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-98" y="181"/>
+        </menu>
+        <window title="Z图床" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="668" y="474" width="126" height="20"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <view key="contentView" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="126" height="20"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zhm-Yf-zQo">
+                        <rect key="frame" x="50" y="-15" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="XcM-Nu-tIt"/>
+                            <constraint firstAttribute="width" constant="50" id="jOq-vZ-zAa"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FLn-vP-OPA"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Zhm-Yf-zQo" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="50" id="ETV-gj-AzJ"/>
+                    <constraint firstItem="Zhm-Yf-zQo" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" id="VD2-rb-LdH"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="-5791" y="-574"/>
+        </window>
+        <menu id="fWa-rH-t3a">
+            <items>
+                <menuItem title="上传图片" tag="1" keyEquivalent="u" id="Nvv-ru-edU">
+                    <connections>
+                        <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="1Ke-iR-9CX"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="qx2-sA-ByH"/>
+                <menuItem title="上传历史" id="pkg-fa-emd">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="清除历史" tag="19" id="pwG-2o-qYD" userLabel="clear cache">
+                    <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
+                    <connections>
+                        <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="5re-jH-Quv"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="c6Z-M0-WC8"/>
+                <menuItem title="更多" id="RCD-pg-oOz">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="更多" id="8Ke-Ek-md5">
+                        <items>
+                            <menuItem title="上传方式" id="1RH-Wb-n2H">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="上传方式" id="9nL-aD-IEm">
+                                    <items>
+                                        <menuItem title="默认" image="defualt-menu" tag="10" id="8bv-Ph-LoL">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="ziu-Wi-UCb"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="七牛" image="qiniu-menu" tag="11" id="Xf6-Pd-yuL">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="gwR-5v-0Hx"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="阿里云" image="oss-menu" tag="12" id="roU-SH-kf9">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="Srq-kT-5rg"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="JWZ-es-xlX"/>
+                            <menuItem title="Markdown" state="on" tag="7" keyEquivalent="m" id="jTH-pG-yA9">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES"/>
+                                <connections>
+                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="GDp-xi-EKO"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="rh4-Gy-x2e"/>
+                            <menuItem title="自动上传" tag="6" id="zra-zw-k7S">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="aAJ-9T-cRs"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="oux-pv-ZwM"/>
+                            <menuItem title="设置" tag="2" id="BK2-gn-dWl">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="Uix-4y-dzX"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="恢复默认" tag="20" id="wDF-TH-rvh" userLabel="reset setting">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
+                                <connections>
+                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="9KY-KO-0to"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="snm-QT-IpA"/>
+                            <menuItem title="关于" tag="4" id="ZB2-ZC-bQK">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="rkg-08-ALQ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="GgS-l5-TVQ"/>
+                            <menuItem title="退出" tag="3" id="RwN-h5-tla">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="qpr-rv-rUA"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-115.5" y="370.5"/>
+        </menu>
+    </objects>
+    <resources>
+        <image name="defualt-menu" width="21" height="14"/>
+        <image name="oss-menu" width="20" height="16"/>
+        <image name="qiniu-menu" width="21" height="14"/>
+    </resources>
+</document>
