@@ -102,7 +102,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
         AppCache.shared.appConfig.setInCache("appConfig")
     }
     
@@ -170,8 +169,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             NSApp.terminate(nil)
         case 4://帮助
             NSWorkspace.shared.open(URL(string: "http://www.psvmc.cn")!)
-        case 5:
-            break
         case 6://自动上传
             sender.state = NSControl.StateValue(rawValue: 1 - sender.state.rawValue);
             AppCache.shared.appConfig.autoUp =  sender.state.rawValue == 1 ? true : false
@@ -222,8 +219,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         arlert.informativeText = informative
         arlert.addButton(withTitle: "确定")
         arlert.addButton(withTitle: "取消")
-        //        arlert.icon = NSImage(named: "Failure")
-        
         arlert.alertStyle = .warning
         arlert.window.center()
         arlert.beginSheetModal(for: self.window!, completionHandler: { (response) in
@@ -231,18 +226,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 clickOK()
             }
         })
-    }
-    
-    @IBAction func btnClick(_ sender: NSButton) {
-        switch sender.tag {
-        case 1:
-            NSWorkspace.shared.open(URL(string: "http://blog.lzqup.com/tools/2016/07/10/Tools-UPImage.html")!)
-            self.window.close()
-        case 2:
-            self.window.close()
-        default:
-            break
-        }
     }
     
     func makeCacheImageMenu(_ imagesArr: [[String: AnyObject]]) -> NSMenu {
@@ -287,26 +270,19 @@ extension AppDelegate: NSUserNotificationCenterDelegate, PasteboardObserverSubsc
     
     func pasteboardChanged(_ pasteboard: NSPasteboard) {
         ImageService.shared.uploadImg(pasteboard)
-        
     }
     
     func registerHotKeys() {
-        
         var gMyHotKeyRef: EventHotKeyRef? = nil
         var gMyHotKeyIDU = EventHotKeyID()
-        var gMyHotKeyIDM = EventHotKeyID()
         var eventType = EventTypeSpec()
         
         eventType.eventClass = OSType(kEventClassKeyboard)
         eventType.eventKind = OSType(kEventHotKeyPressed)
         gMyHotKeyIDU.signature = OSType(32)
         gMyHotKeyIDU.id = UInt32(kVK_ANSI_U);
-        gMyHotKeyIDM.signature = OSType(46);
-        gMyHotKeyIDM.id = UInt32(kVK_ANSI_M);
         
         RegisterEventHotKey(UInt32(kVK_ANSI_U), UInt32(cmdKey), gMyHotKeyIDU, GetApplicationEventTarget(), 0, &gMyHotKeyRef)
-        
-        RegisterEventHotKey(UInt32(kVK_ANSI_M), UInt32(controlKey), gMyHotKeyIDM, GetApplicationEventTarget(), 0, &gMyHotKeyRef)
         
         // Install handler.
         InstallEventHandler(GetApplicationEventTarget(), { (nextHanlder, theEvent, userData) -> OSStatus in
@@ -316,25 +292,11 @@ extension AppDelegate: NSUserNotificationCenterDelegate, PasteboardObserverSubsc
             case UInt32(kVK_ANSI_U):
                 let pboard = NSPasteboard.general
                 ImageService.shared.uploadImg(pboard)
-            case UInt32(kVK_ANSI_M):
-                
-                AppCache.shared.appConfig.linkType = LinkType(rawValue: 1 - AppCache.shared.appConfig.linkType.rawValue)!
-                print(AppCache.shared.appConfig.linkType.rawValue)
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "MarkdownState"), object:  AppCache.shared.appConfig.linkType.rawValue)
-                guard let imagesCache = AppCache.shared.imagesCacheArr.last else {
-                    return 33
-                }
-                NSPasteboard.general.clearContents()
-                let picUrl = imagesCache["url"] as! String
-                NSPasteboard.general.setString(LinkType.getLink(path: picUrl, type: AppCache.shared.appConfig.linkType), forType: .string)
-                
-                
             default:
                 break
             }
             
             return 33
-            /// Check that hkCom in indeed your hotkey ID and handle it.
         }, 1, &eventType, nil, nil)
         
     }

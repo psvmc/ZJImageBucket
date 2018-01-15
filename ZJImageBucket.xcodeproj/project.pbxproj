@@ -52,7 +52,7 @@
 		DD373A5F1E4A0AD0002CC39F /* QNConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNConfig.swift; sourceTree = "<group>"; };
 		DD373A611E4A13ED002CC39F /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		DD4DB49B1D35EDF600FCD47C /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
-		DD7B7E5C1D322CC700B68805 /* ZJImageBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJImageBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD7B7E5C1D322CC700B68805 /* ZJImageBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ZJImageBucket.app; path = "Z图床.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7B7E5F1D322CC700B68805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD7B7E611D322CC700B68805 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD7B7E661D322CC700B68805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };

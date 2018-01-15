@@ -10,7 +10,8 @@ class DragDestinationView: NSView {
         super.init(frame: frameRect)
         let pasteboardTypeFileURL  = NSPasteboard.PasteboardType.init("public.file-url")
         // 注册接受文件拖入的类型
-        registerForDraggedTypes([pasteboardTypeFileURL])
+        registerForDraggedTypes([pasteboardTypeFileURL
+            ,.string])
         
     }
     
