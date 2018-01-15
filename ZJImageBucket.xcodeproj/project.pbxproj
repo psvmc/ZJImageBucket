@@ -497,7 +497,7 @@
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.psvmc.zimagebucket;
-				PRODUCT_NAME = ZJImageBucket;
+				PRODUCT_NAME = "Z图床";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ZJImageBucket/OC-birdge.h";
@@ -525,7 +525,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.psvmc.zimagebucket;
-				PRODUCT_NAME = ZJImageBucket;
+				PRODUCT_NAME = "Z图床";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ZJImageBucket/OC-birdge.h";
