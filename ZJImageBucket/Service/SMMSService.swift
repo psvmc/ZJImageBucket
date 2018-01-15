@@ -35,7 +35,7 @@ class SMMSService: NSObject {
         }, success: { (URLSessionDataTask, responseObject) in
             statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
             let re = responseObject as! [String:AnyObject];
-            print(re)
+            
             guard let url = re["data"]!.value(forKey: "url") as? String else{
                 return
             }

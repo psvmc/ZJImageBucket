@@ -144,6 +144,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let image = ZJPasteboardUtil.getImage(pboard){
             image.scalingImage()
             uploadMenuItem.image = image
+        }else{
+            uploadMenuItem.image = nil
         }
         let object = TMCache.shared().object(forKey: "imageCache")
         if let obj = object as? [[String: AnyObject]] {
