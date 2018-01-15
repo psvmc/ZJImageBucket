@@ -52,7 +52,7 @@
 		DD373A5F1E4A0AD0002CC39F /* QNConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNConfig.swift; sourceTree = "<group>"; };
 		DD373A611E4A13ED002CC39F /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		DD4DB49B1D35EDF600FCD47C /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
-		DD7B7E5C1D322CC700B68805 /* ZJImageBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = ZJImageBucket.app; path = "Z图床.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD7B7E5C1D322CC700B68805 /* Z图床.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Z图床.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7B7E5F1D322CC700B68805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD7B7E611D322CC700B68805 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD7B7E661D322CC700B68805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		DD7B7E5D1D322CC700B68805 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD7B7E5C1D322CC700B68805 /* ZJImageBucket.app */,
+				DD7B7E5C1D322CC700B68805 /* Z图床.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			);
 			name = ZJImageBucket;
 			productName = UPImage;
-			productReference = DD7B7E5C1D322CC700B68805 /* ZJImageBucket.app */;
+			productReference = DD7B7E5C1D322CC700B68805 /* Z图床.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 				TargetAttributes = {
 					DD7B7E5B1D322CC700B68805 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ZE78BS9TBK;
+						DevelopmentTeam = 79EMNXB6R3;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -485,8 +485,9 @@
 				CODE_SIGN_ENTITLEMENTS = ZJImageBucket.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZE78BS9TBK;
+				DEVELOPMENT_TEAM = 79EMNXB6R3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -514,8 +515,9 @@
 				CODE_SIGN_ENTITLEMENTS = ZJImageBucket.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZE78BS9TBK;
+				DEVELOPMENT_TEAM = 79EMNXB6R3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
