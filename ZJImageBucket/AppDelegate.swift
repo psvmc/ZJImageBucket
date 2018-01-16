@@ -160,7 +160,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
         case 1:// 上传
             let pboard = NSPasteboard.general
-            ImageService.shared.uploadImg(pboard)
+            if let  _  = ZJPasteboardUtil.getImageData(pboard){
+                ImageService.shared.uploadImg(pboard)
+            }else{
+                NotificationMessage("提示", informative: "请先[拷贝]上传的图片,再点击上传！", isSuccess: false)
+            }
+            
         case 2:// 设置
             preferencesWindowController.showWindow(nil)
             preferencesWindowController.window?.center()
