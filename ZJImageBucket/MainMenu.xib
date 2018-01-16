@@ -92,32 +92,32 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-98" y="181"/>
+            <point key="canvasLocation" x="-140" y="182"/>
         </menu>
-        <window title="Z图床" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Z图床" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="668" y="474" width="126" height="20"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="contentRect" x="668" y="474" width="178" height="155"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="126" height="20"/>
+                <rect key="frame" x="0.0" y="0.0" width="178" height="155"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zhm-Yf-zQo">
-                        <rect key="frame" x="50" y="-15" width="50" height="50"/>
+                        <rect key="frame" x="39" y="28" width="100" height="100"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="XcM-Nu-tIt"/>
-                            <constraint firstAttribute="width" constant="50" id="jOq-vZ-zAa"/>
+                            <constraint firstAttribute="height" constant="100" id="XcM-Nu-tIt"/>
+                            <constraint firstAttribute="width" constant="100" id="jOq-vZ-zAa"/>
                         </constraints>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FLn-vP-OPA"/>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Zhm-Yf-zQo" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="50" id="ETV-gj-AzJ"/>
                     <constraint firstItem="Zhm-Yf-zQo" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" id="VD2-rb-LdH"/>
+                    <constraint firstItem="Zhm-Yf-zQo" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="kuw-xw-1lZ"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="-5791" y="-574"/>
+            <point key="canvasLocation" x="-5924" y="-530.5"/>
         </window>
         <menu id="fWa-rH-t3a">
             <items>
