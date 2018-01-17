@@ -92,13 +92,13 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-140" y="182"/>
+            <point key="canvasLocation" x="-217" y="46"/>
         </menu>
-        <window title="Z图床" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Z图床" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="668" y="474" width="178" height="155"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="178" height="155"/>
                 <autoresizingMask key="autoresizingMask"/>

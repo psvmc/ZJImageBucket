@@ -152,7 +152,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         cacheImageMenuItem.submenu = makeCacheImageMenu(AppCache.shared.imagesCacheArr)
         statusItem.popUpMenu(statusMenu)
-        
     }
     
     @IBAction func statusMenuClicked(_ sender: NSMenuItem) {

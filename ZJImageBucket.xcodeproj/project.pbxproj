@@ -235,7 +235,7 @@
 				TargetAttributes = {
 					DD7B7E5B1D322CC700B68805 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ZE78BS9TBK;
+						DevelopmentTeam = 79EMNXB6R3;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -487,7 +487,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZE78BS9TBK;
+				DEVELOPMENT_TEAM = 79EMNXB6R3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -517,7 +517,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZE78BS9TBK;
+				DEVELOPMENT_TEAM = 79EMNXB6R3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

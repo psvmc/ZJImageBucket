@@ -12,17 +12,20 @@ open class ZJPasteboardUtil{
     public static func getImage(_ pboard: NSPasteboard)->NSImage?{
         let pasteboardTypeFileURL  = NSPasteboard.PasteboardType.init("public.file-url")
         if let pasteboardItems = pboard.pasteboardItems{
-            let itemFirst = pasteboardItems[0]
-            //print(itemFirst.types)
-            if(itemFirst.types.contains(NSPasteboard.PasteboardType.tiff)){
-                let i = NSImage(pasteboard: pboard)
-                return i;
-            }else if(itemFirst.types.contains(pasteboardTypeFileURL)){
-                if let fileURL = itemFirst.propertyList(forType: pasteboardTypeFileURL) as? String{
-                    let i = NSImage.init(contentsOf: URL.init(string: fileURL)!)
-                    return i;
+            if(pasteboardItems.count > 0){
+                let itemFirst = pasteboardItems[0]
+                //print(itemFirst.types)
+                if(itemFirst.types.contains(NSPasteboard.PasteboardType.tiff)){
+                    let image = NSImage(pasteboard: pboard)
+                    return image;
+                }else if(itemFirst.types.contains(pasteboardTypeFileURL)){
+                    if let fileURL = itemFirst.propertyList(forType: pasteboardTypeFileURL) as? String{
+                        let image = NSImage.init(contentsOf: URL.init(string: fileURL)!)
+                        return image;
+                    }
                 }
             }
+            
         }
         return nil
     }
