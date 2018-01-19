@@ -234,6 +234,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func makeCacheImageMenu(_ imagesArr: [[String: AnyObject]]) -> NSMenu {
         let menu = NSMenu()
+        
         if imagesArr.count == 0 {
             let item = NSMenuItem(title: "没有历史", action: nil, keyEquivalent: "")
             menu.addItem(item)

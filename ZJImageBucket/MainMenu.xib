@@ -131,7 +131,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem title="清除历史" tag="19" id="pwG-2o-qYD" userLabel="clear cache">
-                    <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="5re-jH-Quv"/>
                     </connections>
