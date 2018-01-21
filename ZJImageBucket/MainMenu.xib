@@ -23,7 +23,7 @@
                 <outlet property="defaultMenu" destination="8bv-Ph-LoL" id="FS0-dS-nSl"/>
                 <outlet property="statusMenu" destination="fWa-rH-t3a" id="bG6-IM-Qxm"/>
                 <outlet property="uploadMenuItem" destination="Nvv-ru-edU" id="fyR-Ve-2nU"/>
-                <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
+                <outlet property="window" destination="Rxa-Lo-aKF" id="9oo-jF-L5S"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -94,31 +94,6 @@
             </items>
             <point key="canvasLocation" x="-217" y="46"/>
         </menu>
-        <window title="Z图床" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="668" y="474" width="178" height="155"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-            <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="178" height="155"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zhm-Yf-zQo">
-                        <rect key="frame" x="39" y="28" width="100" height="100"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="100" id="XcM-Nu-tIt"/>
-                            <constraint firstAttribute="width" constant="100" id="jOq-vZ-zAa"/>
-                        </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FLn-vP-OPA"/>
-                    </imageView>
-                </subviews>
-                <constraints>
-                    <constraint firstItem="Zhm-Yf-zQo" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" id="VD2-rb-LdH"/>
-                    <constraint firstItem="Zhm-Yf-zQo" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="kuw-xw-1lZ"/>
-                </constraints>
-            </view>
-            <point key="canvasLocation" x="-5924" y="-530.5"/>
-        </window>
         <menu id="fWa-rH-t3a">
             <items>
                 <menuItem title="上传图片" tag="1" keyEquivalent="u" id="Nvv-ru-edU">
@@ -127,6 +102,12 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="qx2-sA-ByH"/>
+                <menuItem title="显示主窗口" tag="100" id="vdm-7o-dFD">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="UAu-dc-Huk"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="上传历史" id="pkg-fa-emd">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
@@ -211,8 +192,72 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-115.5" y="370.5"/>
+            <point key="canvasLocation" x="-235" y="246"/>
         </menu>
+        <window title="Z图床" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="Rxa-Lo-aKF" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES" fullSizeContentView="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="75" y="104" width="473" height="335"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <view key="contentView" wantsLayer="YES" id="ile-tF-9ri">
+                <rect key="frame" x="0.0" y="0.0" width="473" height="335"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="vQ0-GF-pQG">
+                        <rect key="frame" x="0.0" y="299" width="473" height="36"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N3e-vg-9OL">
+                                <rect key="frame" x="210" y="7" width="53" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Z图床" id="kZn-W9-U9e">
+                                    <font key="font" metaFont="system" size="18"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Iaf-th-nEc">
+                                <rect key="frame" x="324" y="6" width="139" height="23"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="capsule" trackingMode="selectOne" id="tpA-LM-Icd">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="上传" width="66" selected="YES"/>
+                                        <segment label="历史" width="66" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                            </segmentedControl>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Iaf-th-nEc" secondAttribute="trailing" constant="10" id="5Ne-C6-PqW"/>
+                            <constraint firstItem="N3e-vg-9OL" firstAttribute="centerX" secondItem="vQ0-GF-pQG" secondAttribute="centerX" id="ARt-7t-kkE"/>
+                            <constraint firstAttribute="height" constant="36" id="B37-3Y-wmc"/>
+                            <constraint firstItem="Iaf-th-nEc" firstAttribute="centerY" secondItem="vQ0-GF-pQG" secondAttribute="centerY" id="oeV-WX-xR0"/>
+                            <constraint firstItem="N3e-vg-9OL" firstAttribute="centerY" secondItem="vQ0-GF-pQG" secondAttribute="centerY" id="t2O-Ob-Xsf"/>
+                        </constraints>
+                    </customView>
+                    <box appearanceType="aqua" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="cCU-u8-jSC">
+                        <rect key="frame" x="0.0" y="296" width="473" height="5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="k0q-QZ-eEQ"/>
+                        </constraints>
+                    </box>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kxm-ku-TaL">
+                        <rect key="frame" x="0.0" y="0.0" width="473" height="298"/>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cCU-u8-jSC" firstAttribute="top" secondItem="vQ0-GF-pQG" secondAttribute="bottom" id="BUE-2i-2yV"/>
+                    <constraint firstItem="cCU-u8-jSC" firstAttribute="leading" secondItem="ile-tF-9ri" secondAttribute="leading" id="KHg-Lp-YsA"/>
+                    <constraint firstAttribute="trailing" secondItem="vQ0-GF-pQG" secondAttribute="trailing" id="KlT-v9-0XJ"/>
+                    <constraint firstItem="vQ0-GF-pQG" firstAttribute="top" secondItem="ile-tF-9ri" secondAttribute="top" id="LJs-hJ-6cR"/>
+                    <constraint firstItem="Kxm-ku-TaL" firstAttribute="top" secondItem="cCU-u8-jSC" secondAttribute="bottom" id="MUF-k3-aJP"/>
+                    <constraint firstAttribute="trailing" secondItem="Kxm-ku-TaL" secondAttribute="trailing" id="P81-Mj-MC3"/>
+                    <constraint firstAttribute="trailing" secondItem="cCU-u8-jSC" secondAttribute="trailing" id="VCw-Cp-eLl"/>
+                    <constraint firstItem="vQ0-GF-pQG" firstAttribute="leading" secondItem="ile-tF-9ri" secondAttribute="leading" id="c6G-Ta-Wdt"/>
+                    <constraint firstItem="Kxm-ku-TaL" firstAttribute="leading" secondItem="ile-tF-9ri" secondAttribute="leading" id="yfe-rZ-Jkp"/>
+                    <constraint firstAttribute="bottom" secondItem="Kxm-ku-TaL" secondAttribute="bottom" id="ykX-Ko-a6T"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="-6008.5" y="-660.5"/>
+        </window>
     </objects>
     <resources>
         <image name="defualt-menu" width="21" height="14"/>

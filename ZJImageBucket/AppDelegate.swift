@@ -195,10 +195,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             clearImageCatch()
         case 20:
             clearCatch()
+        case 100:
+            self.showMainWindow()
         default:
             break
         }
         
+    }
+    
+    func showMainWindow(){
+        self.window.makeKeyAndOrderFront(self)
     }
     
     func clearCatch() {
