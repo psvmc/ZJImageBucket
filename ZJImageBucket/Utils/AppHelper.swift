@@ -39,6 +39,13 @@ extension NSImage {
 		let nH = nW * sH / sW
 		self.size = CGSize(width: nW, height: nH)
 	}
+    
+    func scalingImage(width:CGFloat) {
+        let sW = self.size.width
+        let sH = self.size.height
+        let nH = width * sH / sW
+        self.size = CGSize(width: width, height: nH)
+    }
 	
 }
 
@@ -47,7 +54,7 @@ extension NSImage {
 func NotificationMessage(_ message: String, informative: String? = nil, isSuccess: Bool = false) {
     let notification = NSUserNotification()
     let notificationCenter = NSUserNotificationCenter.default
-    notificationCenter.delegate = appDelegate as? NSUserNotificationCenterDelegate
+    notificationCenter.delegate = AppDelegate.appDelegate
     notification.title = message
     notification.informativeText = informative
     if isSuccess {

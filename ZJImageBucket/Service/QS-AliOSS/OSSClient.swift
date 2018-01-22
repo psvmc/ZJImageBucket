@@ -108,11 +108,16 @@ class OSSClient: NSObject {
                       ]
         let requestURL = URL(string:"https://" + hostStr + "/" + objectKey)!
         Alamofire.upload(data, to: requestURL, method: .put, headers: header).uploadProgress(closure: { (progress) in
-            print("Upload Progress: \(progress.fractionCompleted)")
-            //上传进度
-            statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "loading-\(Int(progress.fractionCompleted*8))"))
+            let imageUploadModel = ImageUploadModel();
+            imageUploadModel.state = 0
+            imageUploadModel.progress = Int(progress.fractionCompleted*10)
+            NotificationCenter.default.post(name: ZJUploadNotiName, object: imageUploadModel)
+            
         }).responseString { response in
-            statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+            let imageUploadModel = ImageUploadModel();
+            imageUploadModel.state = 1
+            imageUploadModel.progress = 0
+            NotificationCenter.default.post(name: ZJUploadNotiName, object: imageUploadModel)
             switch response.result {
                 
             case .success:

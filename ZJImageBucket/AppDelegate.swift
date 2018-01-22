@@ -3,15 +3,11 @@ import MASPreferences
 import TMCache
 import Carbon
 
-
-var appDelegate: NSObject?
-
 var statusItem: NSStatusItem!
-
-
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    static var appDelegate:AppDelegate!
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var MarkdownItem: NSMenuItem!
     @IBOutlet weak var statusMenu: NSMenu!
@@ -25,6 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var QNMenu: NSMenuItem!
     @IBOutlet weak var AliOSSMenu: NSMenuItem!
     
+    
+    var mainWinController:ZJMainWinController!;
+    
     let pasteboardObserver = PasteboardObserver()
     lazy var preferencesWindowController: NSWindowController = {
         let imageViewController = ImagePreferencesViewController()
@@ -35,19 +34,35 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         aliOSSViewController.window = wc.window
         return wc
     }()
-    @IBAction func dadaAction(_ sender: Any) {
-        print("fsfsf")
-    }
+
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        self.window.center()
+        
         registerHotKeys()
         initApp()
         
-        let mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
-        mainWinController.window?.center()
-        mainWinController.window?.orderFront(self)
-        //self.window.orderOut(nil)
+        self.mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
+        mainWinController.window?.orderFront(nil)
+        
+        AppDelegate.appDelegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(uploadStateChange(noti:)), name: ZJUploadNotiName, object: nil)
+    }
+    
+    @objc func uploadStateChange(noti: Notification){
+        if let uploadModel = noti.object as? ImageUploadModel{
+            if(uploadModel.state == 0){
+                let progress = uploadModel.progress*8/10
+                DispatchQueue.main.async {
+                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "loading-\(progress)"))
+                }
+                
+            }else if(uploadModel.state == 1){
+                DispatchQueue.main.async {
+                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+                }
+            }
+        }
     }
     
     func initApp()  {
@@ -55,7 +70,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(notification), name: NSNotification.Name(rawValue: "MarkdownState"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setUploadDefault), name: NSNotification.Name(rawValue: "setDefault"), object: nil)
-        appDelegate = self
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         //添加图片拖动功能
         let statusBarButton = DragDestinationView(frame: (statusItem.button?.bounds)!)
@@ -108,6 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
+        NotificationCenter.default.removeObserver(self)
         AppCache.shared.appConfig.setInCache("appConfig")
     }
     
@@ -210,9 +225,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showMainWindow(){
-        let mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
-        mainWinController.window?.center()
-        mainWinController.window?.makeKeyAndOrderFront(nil)
+        if(self.mainWinController == nil){
+            self.mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
+        }
+        self.mainWinController.window?.makeKeyAndOrderFront(nil)
     }
     
     func clearCatch() {
@@ -273,6 +289,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NotificationMessage("图片链接获取成功", isSuccess: true)
     }
     
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return false
+    }
+    
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        if(self.mainWinController == nil){
+            self.mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
+        }
+        self.mainWinController.window?.makeKeyAndOrderFront(nil)
+        return true
+    }
+    
 }
 
 
@@ -320,9 +348,7 @@ extension AppDelegate: NSUserNotificationCenterDelegate, PasteboardObserverSubsc
         
     }
     
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return false
-    }
+
     
 }
 

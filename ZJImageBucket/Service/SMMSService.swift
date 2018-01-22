@@ -21,7 +21,9 @@ class SMMSService: NSObject {
             type = "image/jpeg"
         }
         
-        
+        DispatchQueue.main.async {
+            statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "loading-0"))
+        }
         let fileName = getDateString() + "\(timeInterval())" + "\(arc())" + data.imageFormat.rawValue
         
         let manager = AFHTTPSessionManager();
@@ -29,11 +31,15 @@ class SMMSService: NSObject {
         manager.post(api, parameters: nil, constructingBodyWith: { (formData) in
             formData.appendPart(withFileData: data, name: "smfile", fileName: fileName, mimeType: type)
         }, progress: { (progress) in
-            DispatchQueue.main.async {
-                statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "loading-\(Int(progress.fractionCompleted*10))"))
-            }
+            let imageUploadModel = ImageUploadModel();
+            imageUploadModel.state = 0
+            imageUploadModel.progress = Int(progress.fractionCompleted*10)
+            NotificationCenter.default.post(name: ZJUploadNotiName, object: imageUploadModel)
         }, success: { (URLSessionDataTask, responseObject) in
-            statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+            let imageUploadModel = ImageUploadModel();
+            imageUploadModel.state = 1
+            imageUploadModel.progress = 0
+            NotificationCenter.default.post(name: ZJUploadNotiName, object: imageUploadModel)
             let re = responseObject as! [String:AnyObject];
             
             guard let url = re["data"]!.value(forKey: "url") as? String else{

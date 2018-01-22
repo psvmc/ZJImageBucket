@@ -23,7 +23,7 @@
                 <outlet property="defaultMenu" destination="8bv-Ph-LoL" id="FS0-dS-nSl"/>
                 <outlet property="statusMenu" destination="fWa-rH-t3a" id="bG6-IM-Qxm"/>
                 <outlet property="uploadMenuItem" destination="Nvv-ru-edU" id="fyR-Ve-2nU"/>
-                <outlet property="window" destination="v0s-lK-Bd0" id="mpy-v4-OIJ"/>
+                <outlet property="window" destination="t7l-RI-dmd" id="uCo-91-6BU"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -194,29 +194,15 @@
             </items>
             <point key="canvasLocation" x="-653" y="-191"/>
         </menu>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="v0s-lK-Bd0">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="t7l-RI-dmd">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="163" y="199" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-            <view key="contentView" id="40D-qz-oLM">
+            <rect key="contentRect" x="109" y="131" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <view key="contentView" id="xk9-aj-Nh6">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zi7-Rj-QqJ">
-                        <rect key="frame" x="188" y="114" width="125" height="25"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tzT-kV-Vrw">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="dadaAction:" target="Voe-Tx-rLC" id="cL9-j7-Nr6"/>
-                        </connections>
-                    </button>
-                </subviews>
             </view>
-            <point key="canvasLocation" x="58" y="139"/>
         </window>
     </objects>
     <resources>

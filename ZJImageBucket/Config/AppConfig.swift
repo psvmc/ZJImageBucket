@@ -14,6 +14,8 @@ enum LinkType : Int {
     }
 }
 
+var ZJUploadNotiName = NSNotification.Name.init("image_upload_progress")
+
 enum UploadType : Int {
     case defaultType = 0
     case QNType = 1
