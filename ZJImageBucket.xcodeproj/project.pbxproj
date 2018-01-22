@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0285F00E2015832D0000A4CF /* ZJMainWinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0285F00C2015832D0000A4CF /* ZJMainWinController.swift */; };
+		0285F00F2015832D0000A4CF /* ZJMainWinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0285F00D2015832D0000A4CF /* ZJMainWinController.xib */; };
+		0285F0A52015D4800000A4CF /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0285F0A42015D4800000A4CF /* images.xcassets */; };
 		1856E1C11F3990A6003C5725 /* QSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E1BF1F3990A6003C5725 /* QSUtils.m */; };
 		1870065F1F332885009D7AD2 /* AliOSSImagePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870065D1F332885009D7AD2 /* AliOSSImagePreferencesViewController.xib */; };
 		187006601F332885009D7AD2 /* AliOSSImagePreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870065E1F332885009D7AD2 /* AliOSSImagePreferencesViewController.swift */; };
@@ -15,7 +18,6 @@
 		18EAE5D61F39AF28008A5F19 /* OSSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EAE5D31F39AF28008A5F19 /* OSSClient.swift */; };
 		18EAE5D81F39B471008A5F19 /* AliOSSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EAE5D71F39B471008A5F19 /* AliOSSConfig.swift */; };
 		18EAE5DC1F39CECD008A5F19 /* OSSRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EAE5DB1F39CECD008A5F19 /* OSSRequestModel.m */; };
-		3FB71D522014FA1B00616C6B /* ZJMainWinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB71D512014FA1B00616C6B /* ZJMainWinController.swift */; };
 		3FF21C52200A64E6001F9710 /* ZJPasteboardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF21C51200A64E6001F9710 /* ZJPasteboardUtil.swift */; };
 		A8682C395741CBC57CCF7BD8 /* Pods_ZJImageBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C301C4BE1F58FB2D03C818 /* Pods_ZJImageBucket.framework */; };
 		DD0386E71E123C3E00864E9C /* AppCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0386E61E123C3E00864E9C /* AppCache.swift */; };
@@ -35,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0285F00C2015832D0000A4CF /* ZJMainWinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZJMainWinController.swift; sourceTree = "<group>"; };
+		0285F00D2015832D0000A4CF /* ZJMainWinController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZJMainWinController.xib; sourceTree = "<group>"; };
+		0285F0A42015D4800000A4CF /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		1856E1BE1F3990A6003C5725 /* QSUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSUtils.h; sourceTree = "<group>"; };
 		1856E1BF1F3990A6003C5725 /* QSUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSUtils.m; sourceTree = "<group>"; };
 		1870065D1F332885009D7AD2 /* AliOSSImagePreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AliOSSImagePreferencesViewController.xib; sourceTree = "<group>"; };
@@ -46,7 +51,6 @@
 		18EAE5D91F39CECD008A5F19 /* OSSDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSDefine.h; sourceTree = "<group>"; };
 		18EAE5DA1F39CECD008A5F19 /* OSSRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSRequestModel.h; sourceTree = "<group>"; };
 		18EAE5DB1F39CECD008A5F19 /* OSSRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSRequestModel.m; sourceTree = "<group>"; };
-		3FB71D512014FA1B00616C6B /* ZJMainWinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZJMainWinController.swift; sourceTree = "<group>"; };
 		3FF21C51200A64E6001F9710 /* ZJPasteboardUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZJPasteboardUtil.swift; sourceTree = "<group>"; };
 		4DCDD048A1815FE5E53EA3F3 /* Pods-ZJImageBucket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJImageBucket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJImageBucket/Pods-ZJImageBucket.debug.xcconfig"; sourceTree = "<group>"; };
 		B1C301C4BE1F58FB2D03C818 /* Pods_ZJImageBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZJImageBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,7 +194,9 @@
 				DD7B7E5F1D322CC700B68805 /* AppDelegate.swift */,
 				DD7B7E7A1D322D7200B68805 /* MainMenu.xib */,
 				DDE7BB1E1D3F4295009031F3 /* PasteboardObserver.swift */,
-				3FB71D512014FA1B00616C6B /* ZJMainWinController.swift */,
+				0285F00C2015832D0000A4CF /* ZJMainWinController.swift */,
+				0285F00D2015832D0000A4CF /* ZJMainWinController.xib */,
+				0285F0A42015D4800000A4CF /* images.xcassets */,
 			);
 			path = ZJImageBucket;
 			sourceTree = "<group>";
@@ -281,6 +287,8 @@
 				DD7B7E621D322CC700B68805 /* Assets.xcassets in Resources */,
 				DD7B7E791D322D2200B68805 /* ImagePreferencesViewController.xib in Resources */,
 				1870065F1F332885009D7AD2 /* AliOSSImagePreferencesViewController.xib in Resources */,
+				0285F0A52015D4800000A4CF /* images.xcassets in Resources */,
+				0285F00F2015832D0000A4CF /* ZJMainWinController.xib in Resources */,
 				DD7B7E7B1D322D7200B68805 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -371,7 +379,7 @@
 				DD4DB49C1D35EDF600FCD47C /* AppHelper.swift in Sources */,
 				DD7B7E781D322D2200B68805 /* ImagePreferencesViewController.swift in Sources */,
 				DDC266071E5419B30061F5DA /* ImageService.swift in Sources */,
-				3FB71D522014FA1B00616C6B /* ZJMainWinController.swift in Sources */,
+				0285F00E2015832D0000A4CF /* ZJMainWinController.swift in Sources */,
 				3FF21C52200A64E6001F9710 /* ZJPasteboardUtil.swift in Sources */,
 				DDE7BB1F1D3F4295009031F3 /* PasteboardObserver.swift in Sources */,
 				18EAE5D51F39AF28008A5F19 /* OSSBucketModelParser.swift in Sources */,

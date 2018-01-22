@@ -12,12 +12,10 @@ var statusItem: NSStatusItem!
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
-    
-    @IBOutlet weak var MarkdownItem: NSMenuItem!
     @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var MarkdownItem: NSMenuItem!
     @IBOutlet weak var statusMenu: NSMenu!
-    @IBOutlet weak var cacheImageMenu: NSMenu!
+    weak var cacheImageMenu: NSMenu!
     @IBOutlet weak var autoUpItem: NSMenuItem!
     @IBOutlet weak var uploadMenuItem: NSMenuItem!
     @IBOutlet weak var cacheImageMenuItem: NSMenuItem!
@@ -37,10 +35,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         aliOSSViewController.window = wc.window
         return wc
     }()
+    @IBAction func dadaAction(_ sender: Any) {
+        print("fsfsf")
+    }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        self.window.center()
         registerHotKeys()
         initApp()
+        
+        let mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
+        mainWinController.window?.center()
+        mainWinController.window?.orderFront(self)
+        //self.window.orderOut(nil)
     }
     
     func initApp()  {
@@ -48,7 +55,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(notification), name: NSNotification.Name(rawValue: "MarkdownState"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setUploadDefault), name: NSNotification.Name(rawValue: "setDefault"), object: nil)
-        window.center()
         appDelegate = self
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         //添加图片拖动功能
@@ -204,7 +210,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showMainWindow(){
-        self.window.makeKeyAndOrderFront(self)
+        let mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
+        mainWinController.window?.center()
+        mainWinController.window?.makeKeyAndOrderFront(nil)
     }
     
     func clearCatch() {
@@ -310,6 +318,10 @@ extension AppDelegate: NSUserNotificationCenterDelegate, PasteboardObserverSubsc
             return 33
         }, 1, &eventType, nil, nil)
         
+    }
+    
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return false
     }
     
 }
