@@ -108,6 +108,31 @@
                         <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="UAu-dc-Huk"/>
                     </connections>
                 </menuItem>
+                <menuItem title="上传方式" id="1RH-Wb-n2H">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="上传方式" id="9nL-aD-IEm">
+                        <items>
+                            <menuItem title="默认" image="defualt-menu" tag="10" id="8bv-Ph-LoL">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="ziu-Wi-UCb"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="七牛" image="qiniu-menu" tag="11" id="Xf6-Pd-yuL">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="gwR-5v-0Hx"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="阿里云" image="oss-menu" tag="12" id="roU-SH-kf9">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="Srq-kT-5rg"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="上传历史" id="pkg-fa-emd">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
@@ -122,32 +147,6 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="更多" id="8Ke-Ek-md5">
                         <items>
-                            <menuItem title="上传方式" id="1RH-Wb-n2H">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="上传方式" id="9nL-aD-IEm">
-                                    <items>
-                                        <menuItem title="默认" image="defualt-menu" tag="10" id="8bv-Ph-LoL">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="ziu-Wi-UCb"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="七牛" image="qiniu-menu" tag="11" id="Xf6-Pd-yuL">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="gwR-5v-0Hx"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="阿里云" image="oss-menu" tag="12" id="roU-SH-kf9">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="Srq-kT-5rg"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="JWZ-es-xlX"/>
                             <menuItem title="Markdown" state="on" tag="7" id="jTH-pG-yA9">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
@@ -181,15 +180,15 @@
                                     <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="rkg-08-ALQ"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="GgS-l5-TVQ"/>
-                            <menuItem title="退出" tag="3" id="RwN-h5-tla">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="qpr-rv-rUA"/>
-                                </connections>
-                            </menuItem>
                         </items>
                     </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="GgS-l5-TVQ"/>
+                <menuItem title="退出" tag="3" id="RwN-h5-tla">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="statusMenuClicked:" target="Voe-Tx-rLC" id="qpr-rv-rUA"/>
+                    </connections>
                 </menuItem>
             </items>
             <point key="canvasLocation" x="-653" y="-191"/>
@@ -198,7 +197,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="109" y="131" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="xk9-aj-Nh6">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>

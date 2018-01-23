@@ -41,9 +41,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         registerHotKeys()
         initApp()
         
+        self.window.center()
         self.mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
-        mainWinController.window?.orderFront(nil)
-        
+        mainWinController.window?.makeKeyAndOrderFront(nil)
+        mainWinController.window?.center()
+        mainWinController.window?.level = .dock
+        NSApp.activate(ignoringOtherApps: true)
         AppDelegate.appDelegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(uploadStateChange(noti:)), name: ZJUploadNotiName, object: nil)
@@ -212,7 +215,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
         case 10,11,12://选择10、默认方式上传 11、七牛方式上传 12、阿里云方式上传
             setupUploadMenuState(sender)
-        case 19://清除缓存
+        case 19://清除历史
             clearImageCatch()
         case 20:
             clearCatch()
@@ -229,6 +232,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
         }
         self.mainWinController.window?.makeKeyAndOrderFront(nil)
+        mainWinController.window?.level = .dock
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     func clearCatch() {
@@ -298,6 +303,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
         }
         self.mainWinController.window?.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
         return true
     }
     

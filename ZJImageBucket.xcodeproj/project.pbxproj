@@ -39,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0256CA572016BC14004E976C /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		0285F00C2015832D0000A4CF /* ZJMainWinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZJMainWinController.swift; sourceTree = "<group>"; };
 		0285F00D2015832D0000A4CF /* ZJMainWinController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZJMainWinController.xib; sourceTree = "<group>"; };
 		1856E1BE1F3990A6003C5725 /* QSUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSUtils.h; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		DD7B7E7A1D322D7200B68805 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		DD9DCE051E632F63001C0BE5 /* SMMSService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMMSService.swift; sourceTree = "<group>"; };
 		DDB6C2301E120378009B7EDD /* QNService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNService.swift; sourceTree = "<group>"; };
-		DDC182E91D5C1A6600D40AA3 /* OC-birdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OC-birdge.h"; sourceTree = "<group>"; };
 		DDC266061E5419B30061F5DA /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		DDD7F02D1E6D433700B685D8 /* ZJImageBucket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZJImageBucket.entitlements; sourceTree = "<group>"; };
 		DDE7BB1E1D3F4295009031F3 /* PasteboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardObserver.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		3FF21C58200B8F3B001F9710 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				DDC182E91D5C1A6600D40AA3 /* OC-birdge.h */,
+				0256CA572016BC14004E976C /* Bridge-Header.h */,
 				DD7B7E611D322CC700B68805 /* Assets.xcassets */,
 				DD7B7E661D322CC700B68805 /* Info.plist */,
 			);
@@ -377,7 +377,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -539,7 +539,7 @@
 				PRODUCT_NAME = "Z图床";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "ZJImageBucket/OC-birdge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZJImageBucket/Bridge-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -568,7 +568,7 @@
 				PRODUCT_NAME = "Z图床";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "ZJImageBucket/OC-birdge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZJImageBucket/Bridge-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

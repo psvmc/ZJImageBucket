@@ -1,5 +1,8 @@
 import Cocoa
 
+var ZJUploadNotiName = NSNotification.Name.init("image_upload_progress")
+var ZJClearCacheNotiName = NSNotification.Name.init("image_clear_cache")
+
 enum LinkType : Int {
     case url = 0
     case markdown = 1
@@ -13,8 +16,6 @@ enum LinkType : Int {
         }
     }
 }
-
-var ZJUploadNotiName = NSNotification.Name.init("image_upload_progress")
 
 enum UploadType : Int {
     case defaultType = 0

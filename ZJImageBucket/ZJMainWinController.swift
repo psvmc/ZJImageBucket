@@ -9,7 +9,7 @@
 import Cocoa
 import TMCache
 
-class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelegate,NSTableViewDataSource {
+class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelegate,NSTableViewDataSource,DragDropImageViewDelegate {
     
     @IBOutlet weak var view: NSView!
     @IBOutlet weak var topSegmentControl: NSSegmentedControl!
@@ -17,9 +17,10 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
     @IBOutlet weak var tableViewOuter: NSView!
     
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var tableBgLabel: NSTextField!
     var tableData:[ImageCellModel] = []
     
-    @IBOutlet weak var imageView: NSImageView!
+    @IBOutlet weak var imageView: DragDropImageView!
     
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     
@@ -32,6 +33,8 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
         initImageView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(uploadStateChange(noti:)), name: ZJUploadNotiName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(clearCacheNoti(noti:)), name: ZJClearCacheNotiName, object: nil)
+        
     }
     
     func windowWillClose(_ notification: Notification) {
@@ -43,24 +46,34 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
             if(uploadModel.state == 0){
                 let progress = uploadModel.progress
                 DispatchQueue.main.async {
+                    self.imageView.isHidden = true;
+                    self.progressIndicator.isHidden = false;
                     self.progressIndicator.doubleValue = Double(progress)
                 }
                 
             }else if(uploadModel.state == 1){
                 DispatchQueue.main.async {
+                    self.imageView.isHidden = false;
+                    self.progressIndicator.isHidden = true;
                     self.progressIndicator.doubleValue = 0
                 }
             }
         }
     }
     
+    @objc func clearCacheNoti(noti: Notification){
+        self.reloadTableData()
+    }
+    
     func initImageView(){
-        
+        self.imageView.delegate = self;
     }
     
     func initTableView(){
+        self.tableView.selectionHighlightStyle = .none
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
+        self.tableView.intercellSpacing = NSSize.init(width: 0, height: 0)
     }
     
     func reloadTableData(){
@@ -69,11 +82,11 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
             let object = TMCache.shared().object(forKey: "imageCache")
             if let obj = object as? [[String: AnyObject]] {
                 AppCache.shared.imagesCacheArr = obj
-                
-                for item in obj{
+                for i in (0..<obj.count).reversed() {
+                    let item = obj[i]
                     let imageCellModel = ImageCellModel();
                     if let image = item["image"] as? NSImage{
-                        image.scalingImage(width: 500)
+                        image.scalingImage(width: 300)
                         imageCellModel.image = image
                     }
                     if let url = item["url"] as? NSString{
@@ -82,7 +95,8 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
                     self.tableData.append(imageCellModel)
                 }
             }
-            
+
+
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -110,6 +124,13 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
+        if(self.tableData.count > 0){
+            self.tableView.isHidden = false;
+            self.tableBgLabel.isHidden = true;
+        }else{
+            self.tableView.isHidden = true;
+            self.tableBgLabel.isHidden = false;
+        }
         return self.tableData.count
     }
     
@@ -126,17 +147,13 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
         let image = imageCellModel.image
         
         if let height = image?.size.height{
-            if(height>400){
-                return 400
+            if(height>200){
+                return 200
             }
             return height
         }else{
-            return 200
+            return 160
         }
-    }
-    
-    func tableView(_ tableView: NSTableView, didClick tableColumn: NSTableColumn) {
-        
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
@@ -147,7 +164,14 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
             NSPasteboard.general.setString(LinkType.getLink(path: url as String, type: AppCache.shared.appConfig.linkType), forType: .string)
             NotificationMessage("图片链接获取成功", isSuccess: true)
         }
-        
-        
+    }
+    
+    func dropComplete(_ filePath: String!) {
+        do{
+            let data = try Data.init(contentsOf: URL.init(fileURLWithPath: filePath))
+            ImageService.shared.uploadImg(data: data)
+        }catch{
+            
+        }
     }
 }

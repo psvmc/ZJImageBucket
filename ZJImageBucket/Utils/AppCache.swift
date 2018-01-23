@@ -20,6 +20,7 @@ extension DiskCache where Self : NSCoding{
         AppCache.shared.resetAppCache()
     }
     func clearUploadImageCatch() {
+        NotificationCenter.default.post(name: ZJClearCacheNotiName, object: nil)
         AppCache.shared.imagesCacheArr.removeAll()
         TMCache.shared().removeObject(forKey: "imageCache")
     }

@@ -3,12 +3,19 @@ import Cocoa
 class ImageService: NSObject {
     static let shared = ImageService()
     public func uploadImg(_ pboard: NSPasteboard) {
-        var data : Data? = ZJPasteboardUtil.getImageData(pboard)
+        let data : Data? = ZJPasteboardUtil.getImageData(pboard)
+        uploadImg(data:data)
+    }
+    
+    
+    public func uploadImg(data imageData: Data?) {
+        var data = imageData;
         if data?.imageFormat == .unknown {
             let imageRep = NSBitmapImageRep(data: data!)
             data = imageRep?.representation(using: .jpeg, properties: [:])
         }
-        if let data = data{
+        if let data = imageData{
+            
             switch AppCache.shared.appConfig.uploadType {
             case .defaultType:
                 SMMSService.shared.uploadImage(data)
@@ -18,6 +25,7 @@ class ImageService: NSObject {
                 OSSClient.shared.AliOSSUpload(data)
             }
         }
+        
     }
     
 }
