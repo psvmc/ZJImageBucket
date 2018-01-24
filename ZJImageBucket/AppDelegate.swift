@@ -54,17 +54,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func uploadStateChange(noti: Notification){
         if let uploadModel = noti.object as? ImageUploadModel{
-            if(uploadModel.state == 0){
-                let progress = uploadModel.progress*8/10
-                DispatchQueue.main.async {
-                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "loading-\(progress)"))
-                }
+            DispatchQueue.main.async {
                 
-            }else if(uploadModel.state == 1){
-                DispatchQueue.main.async {
+                if(uploadModel.state == 0){
+                    let progress = uploadModel.progress*8/10
+                    statusItem.title = "Z图床-\(progress)/10"
+                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "loading-\(progress)"))
+                }else if(uploadModel.state == 1){
                     statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+                    statusItem.title = "Z图床"
                 }
             }
+            
         }
     }
     
@@ -73,16 +74,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(notification), name: NSNotification.Name(rawValue: "MarkdownState"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setUploadDefault), name: NSNotification.Name(rawValue: "setDefault"), object: nil)
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        statusItem.highlightMode = true
+        
+        //设置状态栏图标和事件
+        let iconImage = NSImage.init(named: NSImage.Name.init("StatusIcon"))
+        statusItem.button?.image = iconImage
+        statusItem.title = "Z图床"
+        statusItem.button?.action = #selector(showMenu)
+        statusItem.button?.target = self
+        
         //添加图片拖动功能
         let statusBarButton = DragDestinationView(frame: (statusItem.button?.bounds)!)
         statusItem.button?.superview?.addSubview(statusBarButton, positioned: .below, relativeTo: statusItem.button)
-        
-        //设置状态栏图标和事件
-        let iconImage = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
-        statusItem.button?.image = iconImage
-        statusItem.button?.action = #selector(showMenu)
-        statusItem.button?.target = self
     }
     
     
@@ -306,6 +310,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.activate(ignoringOtherApps: true)
         return true
     }
+    
     
 }
 

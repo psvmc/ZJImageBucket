@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "logo_16x16.png",
+      "filename" : "图片20.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "logo_32x32.png",
+      "filename" : "图片40.png",
       "scale" : "2x"
     },
     {

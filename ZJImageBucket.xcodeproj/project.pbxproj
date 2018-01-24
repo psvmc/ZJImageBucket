@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0285F00E2015832D0000A4CF /* ZJMainWinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0285F00C2015832D0000A4CF /* ZJMainWinController.swift */; };
 		0285F00F2015832D0000A4CF /* ZJMainWinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0285F00D2015832D0000A4CF /* ZJMainWinController.xib */; };
+		028E119D2018801000D4F0F5 /* iconfont.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 028E119C2018801000D4F0F5 /* iconfont.ttf */; };
 		1856E1C11F3990A6003C5725 /* QSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856E1BF1F3990A6003C5725 /* QSUtils.m */; };
 		1870065F1F332885009D7AD2 /* AliOSSImagePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870065D1F332885009D7AD2 /* AliOSSImagePreferencesViewController.xib */; };
 		187006601F332885009D7AD2 /* AliOSSImagePreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1870065E1F332885009D7AD2 /* AliOSSImagePreferencesViewController.swift */; };
@@ -38,10 +39,24 @@
 		DDE7BB1F1D3F4295009031F3 /* PasteboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7BB1E1D3F4295009031F3 /* PasteboardObserver.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		028E119B20187FB900D4F0F5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Fonts;
+			dstSubfolderSpec = 7;
+			files = (
+				028E119D2018801000D4F0F5 /* iconfont.ttf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0256CA572016BC14004E976C /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		0285F00C2015832D0000A4CF /* ZJMainWinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZJMainWinController.swift; sourceTree = "<group>"; };
 		0285F00D2015832D0000A4CF /* ZJMainWinController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZJMainWinController.xib; sourceTree = "<group>"; };
+		028E119C2018801000D4F0F5 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		1856E1BE1F3990A6003C5725 /* QSUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSUtils.h; sourceTree = "<group>"; };
 		1856E1BF1F3990A6003C5725 /* QSUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSUtils.m; sourceTree = "<group>"; };
 		1870065D1F332885009D7AD2 /* AliOSSImagePreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AliOSSImagePreferencesViewController.xib; sourceTree = "<group>"; };
@@ -189,6 +204,7 @@
 		DD7B7E531D322CC700B68805 = {
 			isa = PBXGroup;
 			children = (
+				028E119C2018801000D4F0F5 /* iconfont.ttf */,
 				DDD7F02D1E6D433700B685D8 /* ZJImageBucket.entitlements */,
 				DD7B7E5E1D322CC700B68805 /* ZJImageBucket */,
 				DD7B7E5D1D322CC700B68805 /* Products */,
@@ -246,6 +262,7 @@
 				DD7B7E5A1D322CC700B68805 /* Resources */,
 				50EC8073D39A9D4A030E7A35 /* [CP] Embed Pods Frameworks */,
 				1E2B0980C6A11CB92A9DFC83 /* [CP] Copy Pods Resources */,
+				028E119B20187FB900D4F0F5 /* CopyFiles */,
 			);
 			buildRules = (
 			);
