@@ -51,7 +51,6 @@ class OSSClient: NSObject {
                      ]
         let requestURL = URL(string:"https://" + host)!
         Alamofire.request(requestURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: header).responseData { response in
-            print(response)
             switch response.result {
             case .success:
                 let buckets = XMLParser(data: response.result.value!)
@@ -108,15 +107,13 @@ class OSSClient: NSObject {
                       ]
         let requestURL = URL(string:"https://" + hostStr + "/" + objectKey)!
         Alamofire.upload(data, to: requestURL, method: .put, headers: header).uploadProgress(closure: { (progress) in
-            let imageUploadModel = ImageUploadModel();
-            imageUploadModel.state = 0
-            imageUploadModel.progress = Int(progress.fractionCompleted*10)
+            let imageUploadModel = ImageUploadModel(state:0);
+            imageUploadModel.progress = Int(progress.fractionCompleted*100)
             NotificationCenter.default.post(name: ZJUploadNotiName, object: imageUploadModel)
             
         }).responseString { response in
-            let imageUploadModel = ImageUploadModel();
-            imageUploadModel.state = 1
-            imageUploadModel.progress = 0
+            let imageUploadModel = ImageUploadModel(state:1);
+            imageUploadModel.progress = 100
             NotificationCenter.default.post(name: ZJUploadNotiName, object: imageUploadModel)
             switch response.result {
                 
@@ -140,6 +137,8 @@ extension OSSClient {
             NotificationMessage("上传图片失败", informative: "请在设置中配置图床")
             return
         }
+
+        NotificationCenter.default.post(name: ZJUploadNotiName, object: ImageUploadModel(state: -1))
         if let data = data {
             let fileName = getDateString() + "\(timeInterval())" + "\(arc())" + data.imageFormat.rawValue
             

@@ -48,21 +48,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mainWinController.window?.level = .dock
         NSApp.activate(ignoringOtherApps: true)
         AppDelegate.appDelegate = self
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(uploadStateChange(noti:)), name: ZJUploadNotiName, object: nil)
     }
     
     @objc func uploadStateChange(noti: Notification){
         if let uploadModel = noti.object as? ImageUploadModel{
             DispatchQueue.main.async {
-                
-                if(uploadModel.state == 0){
-                    let progress = uploadModel.progress*8/10
-                    statusItem.title = "Z图床-\(progress)/10"
-                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "loading-\(progress)"))
+                if(uploadModel.state == -1){
+                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+                    statusItem.title = "准备上传"
+                }else if(uploadModel.state == 0){
+                    if(uploadModel.progress < 100){
+                        let progress = uploadModel.progress*8/100
+                        statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "loading-\(progress)"))
+                        statusItem.title = "[\(uploadModel.progress)%]"
+                    }
                 }else if(uploadModel.state == 1){
                     statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
                     statusItem.title = "Z图床"
+                }else if(uploadModel.state == 2){
+                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+                    statusItem.title = "上传失败"
                 }
             }
             

@@ -15,7 +15,7 @@ class ImageService: NSObject {
             data = imageRep?.representation(using: .jpeg, properties: [:])
         }
         if let data = imageData{
-            
+           
             switch AppCache.shared.appConfig.uploadType {
             case .defaultType:
                 SMMSService.shared.uploadImage(data)

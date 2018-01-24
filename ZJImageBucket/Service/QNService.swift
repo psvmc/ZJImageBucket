@@ -115,6 +115,8 @@ extension QNService{
             NotificationMessage("上传图片失败", informative: "请在设置中配置图床")
             return
         }
+        
+        NotificationCenter.default.post(name: ZJUploadNotiName, object: ImageUploadModel(state: -1))
         upManager = QNService.initQNManager(qc.zone);
         picUrlPrefix = qc.picUrlPrefix;
         mark = qc.mark;
@@ -122,22 +124,21 @@ extension QNService{
         createToken()
         let token = QNToken
         let opt = QNUploadOption(progressHandler: { (key, percent) in
-            
-            let imageUploadModel = ImageUploadModel();
-            imageUploadModel.state = 0
-            imageUploadModel.progress = Int(percent*10)
+            let imageUploadModel = ImageUploadModel(state:0);
+            imageUploadModel.progress = Int(percent*100)
             NotificationCenter.default.post(name: ZJUploadNotiName, object: imageUploadModel)
-            
         })
         let hanlder: (QNResponseInfo?, String?, [AnyHashable : Any]?, NSImage) -> () = { (info, key, resp, image) in
-            let imageUploadModel = ImageUploadModel();
-            imageUploadModel.state = 1
-            imageUploadModel.progress = 0
-            NotificationCenter.default.post(name: ZJUploadNotiName, object: imageUploadModel)
+            
             guard let _ = info, let _ = resp else {
                 NotificationMessage("上传图片失败", informative: "可能是配置信息错误，或者是Token过去。请仔细检查配置信息，或重新上传")
+                NotificationCenter.default.post(name: ZJUploadNotiName, object: ImageUploadModel(state: 2))
                 return
             }
+            
+            let imageUploadModel = ImageUploadModel(state:1);
+            imageUploadModel.progress = 100
+            NotificationCenter.default.post(name: ZJUploadNotiName, object: imageUploadModel)
             NotificationMessage("上传图片成功", isSuccess: true)
             NSPasteboard.general.clearContents()
         

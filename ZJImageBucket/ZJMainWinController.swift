@@ -43,19 +43,16 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
     
     @objc func uploadStateChange(noti: Notification){
         if let uploadModel = noti.object as? ImageUploadModel{
-            if(uploadModel.state == 0){
-                let progress = uploadModel.progress
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if(uploadModel.state == 0){
+                    let progress = uploadModel.progress
                     self.imageView.isHidden = true;
                     self.progressIndicator.isHidden = false;
                     self.progressIndicator.doubleValue = Double(progress)
-                }
-                
-            }else if(uploadModel.state == 1){
-                DispatchQueue.main.async {
+                }else {
                     self.imageView.isHidden = false;
                     self.progressIndicator.isHidden = true;
-                    self.progressIndicator.doubleValue = 0
+                    self.progressIndicator.doubleValue = 100
                 }
             }
         }
@@ -95,8 +92,8 @@ class ZJMainWinController: NSWindowController,NSWindowDelegate,NSTableViewDelega
                     self.tableData.append(imageCellModel)
                 }
             }
-
-
+            
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

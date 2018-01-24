@@ -31,7 +31,7 @@ class DragDestinationView: NSView {
     }
     
     override func draggingExited(_ sender: NSDraggingInfo?) {
-        statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+        NotificationCenter.default.post(name: ZJUploadNotiName, object: ImageUploadModel(state: 1))
     }
     
     override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool {
@@ -42,7 +42,6 @@ class DragDestinationView: NSView {
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         let pboard = sender.draggingPasteboard()
         ImageService.shared.uploadImg(pboard)
-        statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
         return true
     }
 }
