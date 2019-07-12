@@ -57,7 +57,10 @@ class QNService: NSObject {
     
     
     public func createToken(){
-        let authInfo :[String:Any] = ["scope":scope,"deadline" : Int(Date().timeIntervalSince1970) + liveTime * 24 * 3600];
+        let authInfo :[String:Any] = [
+            "scope":scope!,
+            "deadline" : Int(Date().timeIntervalSince1970) + liveTime * 24 * 3600
+        ];
         var jsonData = Data()
         do {
             try jsonData = JSONSerialization.data(withJSONObject: authInfo, options: .prettyPrinted);

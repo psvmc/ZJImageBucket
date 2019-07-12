@@ -42,7 +42,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initApp()
         
         self.window.center()
-        self.mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
+        
+        
+        self.mainWinController = ZJMainWinController.init(windowNibName: "ZJMainWinController")
         mainWinController.window?.makeKeyAndOrderFront(nil)
         mainWinController.window?.center()
         mainWinController.window?.level = .dock
@@ -56,19 +58,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let uploadModel = noti.object as? ImageUploadModel{
             DispatchQueue.main.async {
                 if(uploadModel.state == -1){
-                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+                    statusItem.button?.image = NSImage(named: "StatusIcon")
                     statusItem.title = "准备上传"
                 }else if(uploadModel.state == 0){
                     if(uploadModel.progress < 100){
                         let progress = uploadModel.progress*8/100
-                        statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "loading-\(progress)"))
+                        statusItem.button?.image = NSImage(named: "loading-\(progress)")
                         statusItem.title = "[\(uploadModel.progress)%]"
                     }
                 }else if(uploadModel.state == 1){
-                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+                    statusItem.button?.image = NSImage(named: "StatusIcon")
                     statusItem.title = "Z图床"
                 }else if(uploadModel.state == 2){
-                    statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "StatusIcon"))
+                    statusItem.button?.image = NSImage(named: "StatusIcon")
                     statusItem.title = "上传失败"
                 }
             }
@@ -240,7 +242,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func showMainWindow(){
         if(self.mainWinController == nil){
-            self.mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
+            self.mainWinController = ZJMainWinController.init(windowNibName: "ZJMainWinController")
         }
         self.mainWinController.window?.makeKeyAndOrderFront(nil)
         mainWinController.window?.level = .dock
@@ -311,7 +313,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         if(self.mainWinController == nil){
-            self.mainWinController = ZJMainWinController.init(windowNibName: NSNib.Name(rawValue: "ZJMainWinController"))
+            self.mainWinController = ZJMainWinController.init(windowNibName: "ZJMainWinController")
         }
         self.mainWinController.window?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)

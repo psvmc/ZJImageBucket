@@ -61,10 +61,10 @@ class AliOSSConfig: NSObject,NSCoding,DiskCache  {
     
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        accessKey = aDecoder.decodeObject(forKey: "accessKey") as! String
-        bucket = aDecoder.decodeObject(forKey: "bucket") as! String
-        secretKey = aDecoder.decodeObject(forKey: "secretKey") as! String
-        zone = aDecoder.decodeObject(forKey: "zone") as! Int
+        accessKey = aDecoder.decodeObject(forKey: "accessKey") as? String
+        bucket = aDecoder.decodeObject(forKey: "bucket") as? String
+        secretKey = aDecoder.decodeObject(forKey: "secretKey") as? String
+        zone = aDecoder.decodeObject(forKey: "zone") as? Int
     }
     
     init(accessKey:String, bucket:String, secretKey:String, zone:Int) {

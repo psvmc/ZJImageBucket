@@ -20,12 +20,12 @@ class QNConfig: NSObject,NSCoding,DiskCache {
     
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        picUrlPrefix = aDecoder.decodeObject(forKey: "picUrlPrefix") as! String
-        accessKey = aDecoder.decodeObject(forKey: "accessKey") as! String
-        scope = aDecoder.decodeObject(forKey: "scope") as! String
-        secretKey = aDecoder.decodeObject(forKey: "secretKey") as! String
-        mark = aDecoder.decodeObject(forKey: "mark") as! String
-        zone = aDecoder.decodeObject(forKey: "zone") as! Int
+        picUrlPrefix = aDecoder.decodeObject(forKey: "picUrlPrefix") as? String
+        accessKey = aDecoder.decodeObject(forKey: "accessKey") as? String
+        scope = aDecoder.decodeObject(forKey: "scope") as? String
+        secretKey = aDecoder.decodeObject(forKey: "secretKey") as? String
+        mark = aDecoder.decodeObject(forKey: "mark") as? String
+        zone = aDecoder.decodeObject(forKey: "zone") as? Int
     }
     
     init(picUrlPrefix:String,accessKey:String,scope:String,secretKey:String,mark:String,zone:Int) {

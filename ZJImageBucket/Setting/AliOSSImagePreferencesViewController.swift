@@ -5,7 +5,7 @@ class AliOSSImagePreferencesViewController: NSViewController, MASPreferencesView
     var viewIdentifier: String = "AliOSSImagePreferences"
 
 	var toolbarItemLabel: String? { get { return "阿里云" } }
-	var toolbarItemImage: NSImage? { get { return NSImage(named: NSImage.Name(rawValue: "oss-setting")) } }
+	var toolbarItemImage: NSImage? { get { return NSImage(named: "oss-setting") } }
 	var window: NSWindow?
 	@IBOutlet weak var statusLabel: NSTextField!
 	@IBOutlet weak var accessKeyTextField: NSTextField!
@@ -113,7 +113,7 @@ class AliOSSImagePreferencesViewController: NSViewController, MASPreferencesView
 		arlert.messageText = message
 		arlert.informativeText = informative
 		arlert.addButton(withTitle: "确定")
-        arlert.icon = message == "验证成功" ? NSImage(named: NSImage.Name(rawValue: "Icon_32x32")) :  NSImage(named: NSImage.Name(rawValue: "Failure"))
+        arlert.icon = message == "验证成功" ? NSImage(named: "Icon_32x32") :  NSImage(named: "Failure")
 		arlert.beginSheetModal(for: self.window!, completionHandler: { (response) in
 			
 		})

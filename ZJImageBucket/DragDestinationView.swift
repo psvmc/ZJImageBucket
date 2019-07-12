@@ -20,10 +20,10 @@ class DragDestinationView: NSView {
     }
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
-        let pboard = sender.draggingPasteboard()
+        let pboard = sender.draggingPasteboard
         
         if checkImageFile(pboard) {
-            statusItem.button?.image = NSImage(named: NSImage.Name(rawValue: "upload"))
+            statusItem.button?.image = NSImage(named: "upload")
             return NSDragOperation.copy
         } else {
             return NSDragOperation()
@@ -35,12 +35,12 @@ class DragDestinationView: NSView {
     }
     
     override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        let pboard = sender.draggingPasteboard()
+        let pboard = sender.draggingPasteboard
         return checkImageFile(pboard)
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        let pboard = sender.draggingPasteboard()
+        let pboard = sender.draggingPasteboard
         ImageService.shared.uploadImg(pboard)
         return true
     }

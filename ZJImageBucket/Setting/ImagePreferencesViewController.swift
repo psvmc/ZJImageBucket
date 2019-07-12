@@ -5,7 +5,7 @@ class ImagePreferencesViewController: NSViewController, MASPreferencesViewContro
     var viewIdentifier: String = "ImagePreferences"
     
 	var toolbarItemLabel: String? { get { return "七牛云" } }
-	var toolbarItemImage: NSImage? { get { return NSImage(named: NSImage.Name(rawValue: "qiniu-setting")) } }
+	var toolbarItemImage: NSImage? { get { return NSImage(named: "qiniu-setting") } }
 	var window: NSWindow?
 	@IBOutlet weak var statusLabel: NSTextField!
 	@IBOutlet weak var accessKeyTextField: NSTextField!
@@ -126,7 +126,7 @@ class ImagePreferencesViewController: NSViewController, MASPreferencesViewContro
 		arlert.messageText = message
 		arlert.informativeText = informative
 		arlert.addButton(withTitle: "确定")
-        arlert.icon = message == "验证成功" ? NSImage(named: NSImage.Name(rawValue: "Icon_32x32")) :  NSImage(named: NSImage.Name(rawValue: "upload_fail"))
+        arlert.icon = message == "验证成功" ? NSImage(named: "Icon_32x32") :  NSImage(named: "upload_fail")
 		arlert.beginSheetModal(for: self.window!, completionHandler: { (response) in
 			
 		})

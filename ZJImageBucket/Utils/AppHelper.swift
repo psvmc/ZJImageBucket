@@ -58,10 +58,10 @@ func NotificationMessage(_ message: String, informative: String? = nil, isSucces
     notification.title = message
     notification.informativeText = informative
     if isSuccess {
-        notification.contentImage = NSImage(named: NSImage.Name(rawValue: "upload_success"))
+        notification.contentImage = NSImage(named: "upload_success")
         notification.informativeText = "链接已经保存在剪贴板里，可以直接粘贴"
     } else {
-        notification.contentImage = NSImage(named: NSImage.Name(rawValue: "upload_fail"))
+        notification.contentImage = NSImage(named: "upload_fail")
     }
     notification.soundName = NSUserNotificationDefaultSoundName;
     notificationCenter.scheduleNotification(notification)
