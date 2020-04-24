@@ -29,7 +29,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let imageViewController = ImagePreferencesViewController()
         let aliOSSViewController = AliOSSImagePreferencesViewController()
         let controllers = [imageViewController, aliOSSViewController]
-        let wc = MASPreferencesWindowController(viewControllers: controllers, title: "设置")
+        let wc = MASPreferencesWindowController(
+            viewControllers: controllers,
+            title: "设置"
+        )
         imageViewController.window = wc.window
         aliOSSViewController.window = wc.window
         return wc
